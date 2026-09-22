@@ -15,6 +15,7 @@ Basic academic version of Battleship game to build upon.
 
 - [Tipos de Navios](#tipos-de-navios)
 - [Regras do Jogo](#regras-do-jogo)
+- [Navios da Época dos Descobrimentos](#navios-da-época-dos-descobrimentos)
 
 ## Tipos de Navios
 
@@ -77,3 +78,29 @@ Em cada turno:
 O jogo termina quando um dos jogadores consegue atingir todos os navios da frota adversária.
 
 O primeiro jogador a destruir toda a frota do adversário é declarado vencedor.
+
+## Navios da Época dos Descobrimentos
+
+Nesta versão do jogo, os navios seguem os nomes usados na Era dos Descobrimentos. Abaixo encontra uma breve descrição de cada tipo, com links para saber mais.
+
+### Galeão (Porta-aviões — 5 casas)
+O galeão era um navio de grande porte, com vários conveses, usado tanto para exploração como para transporte de mercadorias e defesa militar.
+[Wikipédia: Galeão](https://pt.wikipedia.org/wiki/Gale%C3%A3o)
+
+### Fragata (Navio de 4 canhões — 4 casas)
+Navio de guerra rápido e manobrável, normalmente armado com um número intermédio de canhões.
+[Wikipédia: Fragata](https://pt.wikipedia.org/wiki/Fragata)
+
+### Nau (Navio de 3 canhões — 3 casas)
+A nau foi o principal navio de longo curso português, usada por Vasco da Gama na rota marítima para a Índia.
+[Wikipédia: Nau](https://pt.wikipedia.org/wiki/Nau)
+
+### Caravela (Navio de 2 canhões — 2 casas)
+Embarcação leve e ágil, com velas latinas, essencial nas primeiras viagens de exploração portuguesas.
+[Wikipédia: Caravela](https://pt.wikipedia.org/wiki/Caravela)
+
+![Caravela Portuguesa](https://commons.wikimedia.org/wiki/Special:FilePath/Caravel_Boa_Esperanca_Portugal.jpg)
+
+### Barca (Submarino — 1 casa)
+Embarcação pequena e versátil, usada sobretudo para transporte costeiro e apoio a operações navais.
+[Wikipédia: Barca](https://pt.wikipedia.org/wiki/Barca)
