@@ -13,7 +13,29 @@ Basic academic version of Battleship game to build upon.
 
 ## Índice
 
+- [Tipos de Navios](#tipos-de-navios)
 - [Regras do Jogo](#regras-do-jogo)
+
+## Tipos de Navios
+
+Nesta versão da Batalha Naval, denominada **Discoveries Battleship Game**,
+os navios recebem nomes associados à época dos Descobrimentos.
+
+Cada jogador dispõe da mesma frota, com a seguinte composição:
+
+| Navio | Nome em inglês | Equivalente na Batalha Naval atual | Dimensão (quadrados) | Quantidade por jogador |
+| :--- | :--- | :--- | :---: | :---: |
+| Galeão | Galleon | Porta-aviões | 5 | 1 |
+| Fragata | Frigate | Navio de 4 canhões | 4 | 1 |
+| Nau | Carrack | Navio de 3 canhões | 3 | 2 |
+| Caravela | Caravel | Navio de 2 canhões | 2 | 3 |
+| Barca | Barge | Submarino | 1 | 4 |
+
+A dimensão indica o número de quadrados que cada navio ocupa na grelha.
+Por exemplo, um Galeão ocupa 5 quadrados e uma Barca ocupa apenas 1.
+
+No total, cada jogador possui **11 navios**, que ocupam **25 quadrados**
+da sua grelha de 10 × 10.
 
 ## Regras do Jogo
 
