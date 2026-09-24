@@ -16,7 +16,8 @@ Basic academic version of Battleship game to build upon.
 - [Tipos de Navios](#tipos-de-navios)
 - [Regras do Jogo](#regras-do-jogo)
 - [Navios da Época dos Descobrimentos](#navios-da-época-dos-descobrimentos)
-
+- [Respostas a Perguntas](#respostas-a-perguntas)
+  
 ## Tipos de Navios
 
 Nesta versão da Batalha Naval, denominada **Discoveries Battleship Game**,
@@ -104,3 +105,12 @@ Embarcação leve e ágil, com velas latinas, essencial nas primeiras viagens de
 ### Barca (Submarino — 1 casa)
 Embarcação pequena e versátil, usada sobretudo para transporte costeiro e apoio a operações navais.
 [Wikipédia: Barca](https://pt.wikipedia.org/wiki/Barca)
+
+## Respostas a Perguntas
+### Questão D.7 
+Escolhendo como exemplo o primeiro pull request feito: 
+Após analisar o Network Graph, observamos que a branch readme-rules foi criado a partir da main para adicionar as regras do jogo ao README.
+
+O grafo mostra que a branch recebeu um commit e foi posteriormente integrada na main através de um Pull Request. Deste modo, é possível observar a bifurcação da branch e a sua posterior união com a branch principal.
+Assim, como resultado, as regras do jogo foram integradas na main, preservando o histórico de desenvolvimento da branch.
+
