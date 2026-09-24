@@ -114,3 +114,23 @@ Após analisar o Network Graph, observamos que a branch readme-rules foi criado 
 O grafo mostra que a branch recebeu um commit e foi posteriormente integrada na main através de um Pull Request. Deste modo, é possível observar a bifurcação da branch e a sua posterior união com a branch principal.
 Assim, como resultado, as regras do jogo foram integradas na main, preservando o histórico de desenvolvimento da branch.
 
+### Questão E.6
+
+1. **Como escolher uma nova User Story durante o Daily Scrum?**
+   - Aceder ao separador **Issues** do repositório.
+   - Selecionar uma User Story do Product Backlog.
+   - Atribuir a Issue a si próprio através de `Assignees`.
+   - Criar uma branch dedicada à implementação da User Story.
+
+2. **Como indicar que uma User Story já foi implementada?**
+   - Concluir a implementação e verificar os Acceptance Criteria.
+   - Criar um Pull Request associado à respetiva Issue.
+   - Solicitar a revisão por outro membro da equipa.
+   - Após a aprovação, integrar as alterações na branch `main`.
+   - Fechar a Issue como `Completed`.
+
+3. **Como indicar que o Product Owner desistiu de uma User Story?**
+   - Aceder à Issue correspondente.
+   - Adicionar a etiqueta `status: WONTFIX`.
+   - Publicar um comentário a explicar a decisão e o motivo do abandono.
+   - Fechar a Issue como `Not planned`.
