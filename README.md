@@ -107,7 +107,8 @@ Embarcação pequena e versátil, usada sobretudo para transporte costeiro e apo
 [Wikipédia: Barca](https://pt.wikipedia.org/wiki/Barca)
 
 ## Respostas a Perguntas
-### Questão D.7
+### Questão D.7 
+Escolhendo como exemplo o primeiro pull request feito: 
 Após analisar o Network Graph, observamos que a branch readme-rules foi criado a partir da main para adicionar as regras do jogo ao README.
 
 O grafo mostra que a branch recebeu um commit e foi posteriormente integrada na main através de um Pull Request. Deste modo, é possível observar a bifurcação da branch e a sua posterior união com a branch principal.
