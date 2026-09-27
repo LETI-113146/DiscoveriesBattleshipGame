@@ -1,37 +1,36 @@
 package iscteiul.ista.battleship;
 
 /**
- * Representa uma Barca no jogo Batalha Naval (versão "Descobrimentos").
+ * Represents a Barge in the Battleship game ("Age of Discoveries" version).
  * <p>
- * A Barca corresponde ao navio mais pequeno do jogo (equivalente ao
- * "Submarino" da versão tradicional), ocupando apenas uma célula do
- * tabuleiro. Cada frota deve conter quatro barcas, de acordo com a
- * especificação do jogo.
+ * The Barge corresponds to the "Submarine" of the traditional version,
+ * occupying a single cell on the board. Each fleet must contain four
+ * barges, according to the game specification.
  *
- * @author (o teu nome aqui)
+ * @author (your name here)
  * @see Ship
  */
 public class Barge extends Ship {
 
     /**
-     * Dimensão fixa da Barca: ocupa sempre uma única célula do tabuleiro.
+     * Fixed size of the Barge: it always occupies a single cell on the board.
      */
     private static final Integer SIZE = 1;
 
     /**
-     * Nome do navio, usado para identificação e apresentação ao utilizador.
+     * Name of the ship, used for identification and display to the user.
      */
     private static final String NAME = "Barca";
 
     /**
-     * Cria uma nova Barca na posição indicada.
+     * Creates a new Barge at the given position.
      * <p>
-     * Como a Barca tem dimensão 1, a orientação (bearing) não influencia
-     * as células ocupadas: a única posição do navio corresponde sempre
-     * à posição inicial fornecida.
+     * Since the Barge has size 1, the bearing does not affect which cells
+     * are occupied: the ship's only position is always the given starting
+     * position.
      *
-     * @param bearing orientação da barca (horizontal ou vertical)
-     * @param pos     posição superior esquerda (linha, coluna) da barca no tabuleiro
+     * @param bearing orientation of the barge (horizontal or vertical)
+     * @param pos     upper left position (row, column) of the barge on the board
      */
     public Barge(Compass bearing, IPosition pos) {
         super(Barge.NAME, bearing, pos);
@@ -39,9 +38,9 @@ public class Barge extends Ship {
     }
 
     /**
-     * Devolve a dimensão da Barca.
+     * Returns the size of the Barge.
      *
-     * @return o valor fixo {@code 1}, correspondente ao tamanho da Barca
+     * @return the fixed value {@code 1}, corresponding to the Barge's size
      */
     @Override
     public Integer getSize() {

@@ -6,11 +6,23 @@ package iscteiul.ista.battleship;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a player's fleet of ships in the Battleship game.
+ * <p>
+ * Keeps the list of ships placed on the board, ensuring that new ships
+ * are only added if they lie within the board's boundaries, do not
+ * collide with existing ships, and do not exceed the maximum number of
+ * ships allowed ({@code FLEET_SIZE}).
+ *
+ * @see IFleet
+ * @see IShip
+ */
 public class Fleet implements IFleet {
+
     /**
-     * This operation prints all the given ships
+     * Prints to the console the textual representation of each ship in the given list.
      *
-     * @param ships The list of ships
+     * @param ships the list of ships to print
      */
     static void printShips(List<IShip> ships) {
         for (IShip ship : ships)
@@ -19,21 +31,38 @@ public class Fleet implements IFleet {
 
     // -----------------------------------------------------
 
+    /**
+     * List of ships that make up this fleet.
+     */
     private List<IShip> ships;
 
+    /**
+     * Creates a new, initially empty fleet.
+     */
     public Fleet() {
         ships = new ArrayList<>();
     }
 
+    /**
+     * Returns the list of ships in this fleet.
+     *
+     * @return the fleet's list of ships
+     */
     @Override
     public List<IShip> getShips() {
         return ships;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Attempts to add a new ship to the fleet.
+     * <p>
+     * The ship is only actually added if: the fleet has not yet reached the
+     * maximum number of ships ({@code FLEET_SIZE}); the ship lies entirely
+     * within the board's boundaries; and the ship is not too close to any
+     * ship already present in the fleet.
      *
-     * @see battleship.IFleet#addShip(battleship.IShip)
+     * @param s the ship to add
+     * @return {@code true} if the ship was successfully added, {@code false} otherwise
      */
     @Override
     public boolean addShip(IShip s) {
@@ -45,10 +74,13 @@ public class Fleet implements IFleet {
         return result;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns all ships in the fleet belonging to a given category
+     * (e.g. "Galeao", "Fragata", "Nau", "Caravela", "Barca").
      *
-     * @see battleship.IFleet#getShipsLike(java.lang.String)
+     * @param category the desired ship category
+     * @return the list of ships in the fleet belonging to that category;
+     *         an empty list if no ship matches
      */
     @Override
     public List<IShip> getShipsLike(String category) {
@@ -60,10 +92,11 @@ public class Fleet implements IFleet {
         return shipsLike;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns all ships in the fleet that are still "floating", i.e. that
+     * have not yet been completely sunk.
      *
-     * @see battleship.IFleet#getFloatingShips()
+     * @return the list of ships not yet sunk
      */
     @Override
     public List<IShip> getFloatingShips() {
@@ -75,10 +108,12 @@ public class Fleet implements IFleet {
         return floatingShips;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the ship in the fleet that occupies the given position, if any.
      *
-     * @see battleship.IFleet#shipAt(battleship.IPosition)
+     * @param pos the position to check
+     * @return the ship occupying that position, or {@code null} if no ship
+     *         in the fleet occupies that position
      */
     @Override
     public IShip shipAt(IPosition pos) {
@@ -88,11 +123,26 @@ public class Fleet implements IFleet {
         return null;
     }
 
+    /**
+     * Checks whether a ship lies entirely within the board's boundaries.
+     *
+     * @param s the ship to check
+     * @return {@code true} if all of the ship's positions lie within the
+     *         board (between {@code 0} and {@code BOARD_SIZE - 1}, inclusive)
+     */
     private boolean isInsideBoard(IShip s) {
         return (s.getLeftMostPos() >= 0 && s.getRightMostPos() <= BOARD_SIZE - 1 && s.getTopMostPos() >= 0
                 && s.getBottomMostPos() <= BOARD_SIZE - 1);
     }
 
+    /**
+     * Checks whether a ship is too close to any of the ships already present
+     * in the fleet, violating the rule that ships must not touch each other.
+     *
+     * @param s the ship to check
+     * @return {@code true} if at least one ship in the fleet is too close to
+     *         the given ship, {@code false} otherwise
+     */
     private boolean colisionRisk(IShip s) {
         for (int i = 0; i < ships.size(); i++) {
             if (ships.get(i).tooCloseTo(s))
