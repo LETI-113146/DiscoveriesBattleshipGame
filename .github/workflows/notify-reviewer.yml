@@ -1,3 +1,4 @@
+
 name: Notify PR Reviewer
 
 on:
@@ -20,9 +21,13 @@ jobs:
             const reviewer = context.payload.requested_reviewer.login;
             const prNumber = context.issue.number;
 
+            const message = '@' + reviewer +
+              ', a tua revisão deste Pull Request foi solicitada. ' +
+              'Por favor, verifica as alterações quando estiveres disponível.';
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber,
-              body: @${reviewer}, a tua revisão deste Pull Request foi solicitada. Por favor, verifica as alterações quando estiveres disponível.
+              body: message
             });
