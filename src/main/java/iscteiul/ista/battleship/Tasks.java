@@ -1,9 +1,5 @@
 /**
- * Provides command-driven tasks for exercising the main features of the
- * Battleship application.
  *
- * <p>The tasks read commands and game data from standard input and report
- * their results through the application logger.</p>
  */
 package iscteiul.ista.battleship;
 
@@ -13,40 +9,73 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Provides command-driven tasks for exercising the main features of the
+ * Battleship application.
+ *
+ * <p>The tasks read commands and game data from standard input and report
+ * their results through the application logger.</p>
+ */
 public class Tasks {
-    /** Logger used to report task results and user messages. */
+    /**
+     * Logger used to report task results and user messages.
+     */
     private static final Logger LOGGER = LogManager.getLogger();
 
-    /** Number of shots fired during each firing round. */
+    /**
+     * Number of shots fired during each firing round.
+     */
     private static final int NUMBER_SHOTS = 3;
 
-    /** Message displayed when the user ends a task. */
+    /**
+     * Message displayed when the user ends a task.
+     */
     private static final String GOODBYE_MESSAGE = "Bons ventos!";
 
-    /** Command used to create a new fleet. */
+    /**
+     * Strings to be used by the user
+     */
+    /**
+     * Command used to create a new fleet.
+     */
     private static final String NOVAFROTA = "nova";
-    /** Command used to end the current task. */
+
+    /**
+     * Command used to end the current task.
+     */
     private static final String DESISTIR = "desisto";
-    /** Command used to fire a round of shots. */
+
+    /**
+     * Command used to fire a round of shots.
+     */
     private static final String RAJADA = "rajada";
-    /** Command used to display the valid shots made in the game. */
+
+    /**
+     * Command used to display the valid shots made in the game.
+     */
     private static final String VERTIROS = "ver";
-    /** Command used to reveal the fleet map. */
+
+    /**
+     * Command used to reveal the fleet map.
+     */
     private static final String BATOTA = "mapa";
-    /** Command used to display the fleet status. */
+
+    /**
+     * Command used to display the fleet status.
+     */
     private static final String STATUS = "estado";
 
 
     /////////////////////////////////////////////////////////////////////////////
-    // The following tasks demonstrate behavior that can be converted into
-    // automated tests after suitable changes. They also illustrate incremental
-    // development, beginning with ships and fleets and progressing to rule
-    // validation and firing.
+    // hereafter one may find some code that can be converted to automatic tests,
+    // as long as appropriate changes are made. It also shows that we should
+    // develop our code incrementally e.g. first the ships, then the fleet,
+    // then some rule checking, then dealing with firing and so on
     /////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Tests ship creation by reading a ship followed by three positions and
-     * reporting whether the ship occupies each position.
+     * This task tests the building up of ships: For each ship, reads positions and
+     * indicates whether the ship occupies each one of such positions or not
      */
     public static void taskA() {
         Scanner in = new Scanner(System.in);
@@ -61,8 +90,7 @@ public class Tasks {
     }
 
     /**
-     * Tests fleet creation and status reporting by processing commands read
-     * from standard input.
+     * This task tests the building up of fleets
      */
     public static void taskB() {
         Scanner in = new Scanner(System.in);
@@ -87,8 +115,8 @@ public class Tasks {
     }
 
     /**
-     * Tests fleet creation and status reporting, including the command that
-     * reveals the fleet map.
+     * This task tests the building up of fleets and takes into consideration the
+     * possibility of cheating
      */
     public static void taskC() {
         Scanner in = new Scanner(System.in);
@@ -116,8 +144,7 @@ public class Tasks {
     }
 
     /**
-     * Tests fleet creation and combat by processing commands for status
-     * reporting, map display, shot history, and three-shot firing rounds.
+     * This task also tests the fighting element of a round of three shots
      */
     public static void taskD() {
 
@@ -162,10 +189,10 @@ public class Tasks {
     }
 
     /**
-     * Builds a fleet using ship data read from the supplied scanner.
+     * This operation allows the build up of a fleet, given user data
      *
-     * @param in the scanner from which ship data is read
-     * @return the fleet built from the input data
+     * @param in The scanner to read from
+     * @return The fleet that has been built
      */
     static Fleet buildFleet(Scanner in) {
         assert in != null;
@@ -189,4 +216,47 @@ public class Tasks {
         return fleet;
     }
 
-/**
+    /**
+     * This operation reads data about a ship, build it and returns it
+     *
+     * @param in The scanner to read from
+     * @return The created ship based on the data that has been read
+     */
+    static Ship readShip(Scanner in) {
+        String shipKind = in.next();
+        Position pos = readPosition(in);
+        char c = in.next().charAt(0);
+        Compass bearing = Compass.charToCompass(c);
+        return Ship.buildShip(shipKind, bearing, pos);
+    }
+
+    /**
+     * This operation allows reading a position in the map
+     *
+     * @param in The scanner to read from
+     * @return The position that has been read
+     */
+    static Position readPosition(Scanner in) {
+        int row = in.nextInt();
+        int column = in.nextInt();
+        return new Position(row, column);
+    }
+
+    /**
+     * This operation allows firing a round of shots (three) over a fleet, in the
+     * context of a game
+     *
+     * @param in   The scanner to read from
+     * @param game The context game while fleet is being attacked
+     */
+    static void firingRound(Scanner in, IGame game) {
+        for (int i = 0; i < NUMBER_SHOTS; i++) {
+            IPosition pos = readPosition(in);
+            IShip sh = game.fire(pos);
+            if (sh != null)
+                LOGGER.info("Mas... mas... {}s nao sao a prova de bala? :-(", sh.getCategory());
+        }
+
+    }
+
+}
