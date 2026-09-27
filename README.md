@@ -134,3 +134,11 @@ Assim, como resultado, as regras do jogo foram integradas na main, preservando o
    - Adicionar a etiqueta `status: WONTFIX`.
    - Publicar um comentário a explicar a decisão e o motivo do abandono.
    - Fechar a Issue como `Not planned`.
+
+### Questão F.4
+
+Através do menu Insights do GitHub, explorámos as diferentes ferramentas de análise do repositório:
+
+- **Contributors:** permite analisar as contribuições individuais dos membros da equipa, incluindo os commits realizados.
+- **Network:** apresenta graficamente o histórico das branches, permitindo visualizar a sua criação, os commits e os merges realizados.
+- **Pulse:** fornece um resumo da atividade recente do repositório, incluindo Pull Requests e Issues.
