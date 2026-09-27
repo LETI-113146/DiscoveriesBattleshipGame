@@ -1,5 +1,8 @@
 /**
+ * Provides the common state and behavior of ships in a Battleship game.
  *
+ * <p>Each ship has a category, a bearing, a reference position, and a list
+ * of board positions that it occupies.</p>
  */
 package iscteiul.ista.battleship;
 
@@ -16,10 +19,12 @@ public abstract class Ship implements IShip {
     private static final String BARCA = "barca";
 
     /**
-     * @param shipKind
-     * @param bearing
-     * @param pos
-     * @return
+     * Creates a ship of the requested category.
+     *
+     * @param shipKind the category of ship to create
+     * @param bearing the direction in which the ship is oriented
+     * @param pos the ship's reference position
+     * @return the created ship, or {@code null} if the category is unknown
      */
     static Ship buildShip(String shipKind, Compass bearing, Position pos) {
         Ship s;
@@ -53,9 +58,12 @@ public abstract class Ship implements IShip {
 
 
     /**
-     * @param category
-     * @param bearing
-     * @param pos
+     * Creates a ship with the specified category, bearing, and reference
+     * position.
+     *
+     * @param category the ship's category
+     * @param bearing the direction in which the ship is oriented
+     * @param pos the ship's reference position
      */
     public Ship(String category, Compass bearing, IPosition pos) {
         assert bearing != null;
@@ -67,10 +75,10 @@ public abstract class Ship implements IShip {
         positions = new ArrayList<>();
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the ship's category.
      *
-     * @see battleship.IShip#getCategory()
+     * @return the ship category
      */
     @Override
     public String getCategory() {
@@ -78,166 +86,43 @@ public abstract class Ship implements IShip {
     }
 
     /**
-     * @return the positions
+     * Returns the board positions occupied by the ship.
+     *
+     * @return the ship's occupied positions
      */
     public List<IPosition> getPositions() {
         return positions;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the ship's reference position.
      *
-     * @see battleship.IShip#getPosition()
+     * @return the reference position
      */
     @Override
     public IPosition getPosition() {
         return pos;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the direction in which the ship is oriented.
      *
-     * @see battleship.IShip#getBearing()
+     * @return the ship's bearing
      */
     @Override
     public Compass getBearing() {
         return bearing;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Determines whether at least one position occupied by the ship has not
+     * been hit.
      *
-     * @see battleship.IShip#stillFloating()
+     * @return {@code true} if the ship is still floating; {@code false} if
+     *         all its positions have been hit
      */
     @Override
     public boolean stillFloating() {
         for (int i = 0; i < getSize(); i++)
             if (!getPositions().get(i).isHit())
                 return true;
-        return false;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#getTopMostPos()
-     */
-    @Override
-    public int getTopMostPos() {
-        int top = getPositions().get(0).getRow();
-        for (int i = 1; i < getSize(); i++)
-            if (getPositions().get(i).getRow() < top)
-                top = getPositions().get(i).getRow();
-        return top;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#getBottomMostPos()
-     */
-    @Override
-    public int getBottomMostPos() {
-        int bottom = getPositions().get(0).getRow();
-        for (int i = 1; i < getSize(); i++)
-            if (getPositions().get(i).getRow() > bottom)
-                bottom = getPositions().get(i).getRow();
-        return bottom;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#getLeftMostPos()
-     */
-    @Override
-    public int getLeftMostPos() {
-        int left = getPositions().get(0).getColumn();
-        for (int i = 1; i < getSize(); i++)
-            if (getPositions().get(i).getColumn() < left)
-                left = getPositions().get(i).getColumn();
-        return left;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#getRightMostPos()
-     */
-    @Override
-    public int getRightMostPos() {
-        int right = getPositions().get(0).getColumn();
-        for (int i = 1; i < getSize(); i++)
-            if (getPositions().get(i).getColumn() > right)
-                right = getPositions().get(i).getColumn();
-        return right;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#occupies(battleship.IPosition)
-     */
-    @Override
-    public boolean occupies(IPosition pos) {
-        assert pos != null;
-
-        for (int i = 0; i < getSize(); i++)
-            if (getPositions().get(i).equals(pos))
-                return true;
-        return false;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#tooCloseTo(battleship.IShip)
-     */
-    @Override
-    public boolean tooCloseTo(IShip other) {
-        assert other != null;
-
-        Iterator<IPosition> otherPos = other.getPositions().iterator();
-        while (otherPos.hasNext())
-            if (tooCloseTo(otherPos.next()))
-                return true;
-
-        return false;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#tooCloseTo(battleship.IPosition)
-     */
-    @Override
-    public boolean tooCloseTo(IPosition pos) {
-        for (int i = 0; i < this.getSize(); i++)
-            if (getPositions().get(i).isAdjacentTo(pos))
-                return true;
-        return false;
-    }
-
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IShip#shoot(battleship.IPosition)
-     */
-    @Override
-    public void shoot(IPosition pos) {
-        assert pos != null;
-
-        for (IPosition position : getPositions()) {
-            if (position.equals(pos))
-                position.shoot();
-        }
-    }
-
-
-    @Override
-    public String toString() {
-        return "[" + category + " " + bearing + " " + pos + "]";
-    }
-
-}
