@@ -142,3 +142,23 @@ Através do menu Insights do GitHub, explorámos as diferentes ferramentas de an
 - **Contributors:** permite analisar as contribuições individuais dos membros da equipa, incluindo os commits realizados.
 - **Network:** apresenta graficamente o histórico das branches, permitindo visualizar a sua criação, os commits e os merges realizados.
 - **Pulse:** fornece um resumo da atividade recente do repositório, incluindo Pull Requests e Issues.
+
+### Parte 2 C.1 — Comparação Crítica
+
+#### Quais são as diferenças entre trabalhar via web e via IDE? Em que situações é preferível cada abordagem?
+
+A interface web do **GitHub** é especialmente adequada à gestão e colaboração no projeto, enquanto o **IntelliJ IDEA** oferece um ambiente mais completo para o desenvolvimento de software.
+
+- **GitHub (interface web):**
+  - Permite criar e gerir Issues, branches e Pull Requests.
+  - Facilita a revisão de código e a comunicação entre os membros do grupo.
+  - Permite consultar o histórico de commits e executar GitHub Actions.
+  - É adequado para pequenas alterações, como editar ficheiros Markdown, sem necessidade de clonar o repositório.
+
+- **IntelliJ IDEA (IDE):**
+  - Disponibiliza ferramentas de desenvolvimento, como autocomplete, refactoring, debugging e execução de testes.
+  - Facilita a navegação entre classes e a documentação do código com Javadoc.
+  - Permite realizar operações Git, como commits, merges, pulls e pushes, através de uma interface gráfica.
+  - É mais adequado para alterações complexas que exigem compilar, executar e testar o código localmente.
+
+**Conclusão:** As duas abordagens são complementares. A interface web do GitHub é preferível para gerir o projeto, acompanhar o trabalho do grupo e rever contribuições, já O IntelliJ IDEA é mais indicado para desenvolver, documentar e testar o código. A utilização conjunta das duas ferramentas permite um fluxo de trabalho mais eficiente e colaborativo.
