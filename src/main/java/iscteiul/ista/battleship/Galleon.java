@@ -1,15 +1,28 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
+/**
+ * Represents a galleon in the fleet.
+ * A galleon occupies five board positions in a shape determined by its
+ * bearing.
+ *
+ * @see Ship
+ */
 public class Galleon extends Ship {
+    /** The number of board positions occupied by a galleon. */
     private static final Integer SIZE = 5;
+
+    /** The category name used to identify a galleon. */
     private static final String NAME = "Galeao";
 
     /**
-     * @param bearing
-     * @param pos
+     * Creates a galleon starting at the specified position.
+     *
+     * @param bearing the orientation that determines the galleon's shape
+     * @param pos     the initial position used to place the galleon
+     * @throws NullPointerException     if {@code bearing} or {@code pos} is
+     *                                  {@code null}
+     * @throws IllegalArgumentException if {@code bearing} is not a supported
+     *                                  direction
      */
     public Galleon(Compass bearing, IPosition pos) throws IllegalArgumentException {
         super(Galleon.NAME, bearing, pos);
@@ -36,10 +49,10 @@ public class Galleon extends Ship {
         }
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of positions occupied by the galleon.
      *
-     * @see battleship.Ship#getSize()
+     * @return the fixed galleon size of {@code 5}
      */
     @Override
     public Integer getSize() {

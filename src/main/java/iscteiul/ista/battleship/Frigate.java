@@ -1,15 +1,28 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
+/**
+ * Represents a frigate in the fleet.
+ * A frigate occupies four consecutive positions, arranged vertically when its
+ * bearing is north or south and horizontally when its bearing is east or west.
+ *
+ * @see Ship
+ */
 public class Frigate extends Ship {
+    /** The number of board positions occupied by a frigate. */
     private static final Integer SIZE = 4;
+
+    /** The category name used to identify a frigate. */
     private static final String NAME = "Fragata";
 
     /**
-     * @param bearing
-     * @param pos
+     * Creates a frigate starting at the specified position.
+     *
+     * @param bearing the orientation of the frigate
+     * @param pos     the initial position used to place the frigate
+     * @throws NullPointerException     if {@code bearing} or {@code pos} is
+     *                                  {@code null}
+     * @throws IllegalArgumentException if {@code bearing} is not a supported
+     *                                  direction
      */
     public Frigate(Compass bearing, IPosition pos) throws IllegalArgumentException {
         super(Frigate.NAME, bearing, pos);
@@ -29,10 +42,10 @@ public class Frigate extends Ship {
         }
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of positions occupied by the frigate.
      *
-     * @see battleship.Ship#getSize()
+     * @return the fixed frigate size of {@code 4}
      */
     @Override
     public Integer getSize() {

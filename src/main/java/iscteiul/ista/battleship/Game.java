@@ -1,14 +1,15 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author fba
+ * Implements a Battleship game for a given fleet.
+ * The game records valid shots and maintains statistics for invalid shots,
+ * repeated shots, hits, sunk ships, and ships that remain afloat.
  *
+ * @author fba
+ * @see IGame
  */
 public class Game implements IGame {
     private IFleet fleet;
@@ -21,7 +22,9 @@ public class Game implements IGame {
 
 
     /**
-     * @param fleet
+     * Creates a game for the specified fleet with no recorded shots.
+     *
+     * @param fleet the fleet targeted during the game
      */
     public Game(IFleet fleet) {
         shots = new ArrayList<>();
@@ -30,10 +33,12 @@ public class Game implements IGame {
         this.fleet = fleet;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Fires at the specified board position. Invalid and repeated attempts are
+     * counted but are not added to the collection of valid shots.
      *
-     * @see battleship.IGame#fire(battleship.IPosition)
+     * @param pos the position to target
+     * @return the ship sunk by this shot, or {@code null} if no ship is sunk
      */
     @Override
     public IShip fire(IPosition pos) {
@@ -58,60 +63,60 @@ public class Game implements IGame {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the valid, non-repeated shots fired during the game.
      *
-     * @see battleship.IGame#getShots()
+     * @return the list of recorded shots
      */
     @Override
     public List<IPosition> getShots() {
         return shots;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of repeated shots.
      *
-     * @see battleship.IGame#getRepeatedShots()
+     * @return the number of shots aimed at an already recorded position
      */
     @Override
     public int getRepeatedShots() {
         return this.countRepeatedShots;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of shots outside the board.
      *
-     * @see battleship.IGame#getInvalidShots()
+     * @return the number of invalid shots
      */
     @Override
     public int getInvalidShots() {
         return this.countInvalidShots;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of successful hits.
      *
-     * @see battleship.IGame#getHits()
+     * @return the number of hits on ships
      */
     @Override
     public int getHits() {
         return this.countHits;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of ships sunk during the game.
      *
-     * @see battleship.IGame#getSunkShips()
+     * @return the number of sunk ships
      */
     @Override
     public int getSunkShips() {
         return this.countSinks;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the number of ships that are still floating.
      *
-     * @see battleship.IGame#getRemainingShips()
+     * @return the number of remaining ships
      */
     @Override
     public int getRemainingShips() {
@@ -131,7 +136,13 @@ public class Game implements IGame {
         return false;
     }
 
-
+    /**
+     * Prints a representation of the board, marking each supplied position
+     * with the specified character and all other positions with a dot.
+     *
+     * @param positions the positions to mark on the board
+     * @param marker    the character used to mark each position
+     */
     public void printBoard(List<IPosition> positions, Character marker) {
         char[][] map = new char[Fleet.BOARD_SIZE][Fleet.BOARD_SIZE];
 
