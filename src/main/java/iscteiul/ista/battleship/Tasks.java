@@ -9,21 +9,60 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Provides command-driven tasks for exercising the main features of the
+ * Battleship application.
+ *
+ * <p>The tasks read commands and game data from standard input and report
+ * their results through the application logger.</p>
+ */
 public class Tasks {
+    /**
+     * Logger used to report task results and user messages.
+     */
     private static final Logger LOGGER = LogManager.getLogger();
 
+    /**
+     * Number of shots fired during each firing round.
+     */
     private static final int NUMBER_SHOTS = 3;
 
+    /**
+     * Message displayed when the user ends a task.
+     */
     private static final String GOODBYE_MESSAGE = "Bons ventos!";
 
     /**
      * Strings to be used by the user
      */
+    /**
+     * Command used to create a new fleet.
+     */
     private static final String NOVAFROTA = "nova";
+
+    /**
+     * Command used to end the current task.
+     */
     private static final String DESISTIR = "desisto";
+
+    /**
+     * Command used to fire a round of shots.
+     */
     private static final String RAJADA = "rajada";
+
+    /**
+     * Command used to display the valid shots made in the game.
+     */
     private static final String VERTIROS = "ver";
+
+    /**
+     * Command used to reveal the fleet map.
+     */
     private static final String BATOTA = "mapa";
+
+    /**
+     * Command used to display the fleet status.
+     */
     private static final String STATUS = "estado";
 
 
