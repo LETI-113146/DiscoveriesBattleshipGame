@@ -3,7 +3,7 @@
 Basic academic version of Battleship game to build upon.
 
 
-### Nickname do Grupo: Reis dos 7 Mares
+### Nickname do Grupo: Reis dos 9 Mares
 
 > | Curso | Número | Nome |
 > | :--- | :--- | :--- |
