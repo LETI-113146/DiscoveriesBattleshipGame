@@ -163,3 +163,16 @@ A interface web do **GitHub** é especialmente adequada à gestão e colaboraç�
   - É mais adequado para alterações complexas que exigem compilar, executar e testar o código localmente.
 
 **Conclusão:** As duas abordagens são complementares. A interface web do GitHub é preferível para gerir o projeto, acompanhar o trabalho do grupo e rever contribuições, já O IntelliJ IDEA é mais indicado para desenvolver, documentar e testar o código. A utilização conjunta das duas ferramentas permite um fluxo de trabalho mais eficiente e colaborativo.
+
+### Questão G - Documentação de criação e resolução de conflito
+
+Para o exercicio de criar e resolver um conflito fizemos primeiro 2 branches
+[`testar-conflito-1`](https://github.com/LETI-113146/DiscoveriesBattleshipGame/tree/testar-conflito-1)
+e
+[`testar-conflito-2`](https://github.com/LETI-113146/DiscoveriesBattleshipGame/tree/testar-conflito-2).
+
+Os branches foram criados ao mesmo tempo mas o testar-conflito-1 foi merged primeiro. Por alterarem a mesma linha do ficheiro readme, ao atualizar o segundo branch, testar-conflito-2 com origin main surgiu o conflito. Resolvemos aceitando uma parte do branch remoto main e outra do local testar-conflito-2 como pode ser visto nos screenshots abaixo e no histórico do git
+
+<img width="1448" height="768" alt="Screenshot 2026-09-27 at 18 49 37" src="https://github.com/user-attachments/assets/52019ac7-0989-4f83-ad47-2c84c83bc2c5" />
+
+<img width="1284" height="699" alt="Screenshot 2026-09-27 at 18 51 59" src="https://github.com/user-attachments/assets/16f64743-fec9-4938-aac4-164b35b7d602" />
